@@ -1,0 +1,16 @@
+Chai aur Code - MegaBlog Project
+
+
+libraies used: react-hook-form, tiny-mce/tinymce-react, appwrite, html-react-parser, react-redux, react-router-dom
+
+Steps followed
+
+---create an env variable 
+
+---setup appwrite for authentication, make a class and add all the methods, then export it
+
+---setup appwrite for database, make a class and add all the methods, then export it
+
+---Now set up the reduxtoolkit store
+with all the slicers and reducers
+
