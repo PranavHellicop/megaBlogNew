@@ -75,7 +75,7 @@ class DbStore {
         try {
             return await this.database.getDocument(
                 conf.appwriteDatabaseId,
-                appwriteCollectionId,
+                conf.appwriteCollectionId,
                 slug
             )
             

@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({userData}) => {
   const authStatus = useSelector((state)=>state.auth.status)
+  // const userData = useSelector((state)=>state.auth.userData)
   const navigate = useNavigate()
-
+  // {console.log("userData from the store:",userData)}
   const navItems = [
   {
     name:'Home',
@@ -36,14 +37,15 @@ const Header = () => {
   }
 ]
 
-  return (
+   return (
     <header className='py-3 shadow bg-gray-500'>
       <Container>
         <nav className='flex'>
-          <div className='mr-4'>
+          <div className='mr-4 flex'>
             <Link to='/'>
               <Logo width='70px'></Logo>
             </Link>
+            <div className='mx-5'>{authStatus && userData ? `Hi ${userData.name}`:""}</div>
           </div>
           <ul className='flex ml-auto'>
             {navItems.map((item)=>(

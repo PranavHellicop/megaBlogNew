@@ -15,12 +15,15 @@ const Login = () => {
     const navigate = useNavigate()
 
     const login = async (data) => {
-        console.log(data)
+        console.log("loginData provided by user: ",data)
         setError("")
         try {
-            const session = await authService.login(data)   //got the session token, meaning user has logged in, so extract the userData and update the state
+            const session = await authService.login(data) 
+            {console.log("login session",session)}  //got the session token, meaning user has logged in, so extract the userData and update the state
             if (session) {
                 const userData = await authService.getCurrentUser()
+                console.log("Data about the user, called from appwrite: ",userData)
+
                 if (userData) dispatch(authLogin(userData))
                 navigate("/")   //advantage of useNavigate over Link is that user don't have to press a button or take action, you can force it
             }

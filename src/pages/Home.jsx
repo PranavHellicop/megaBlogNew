@@ -1,9 +1,10 @@
 import React, {useState,useEffect} from 'react'
 import dbStore from '../appwrite/config'
 import { Container,PostCard } from '../components'
-
+import { useSelector } from 'react-redux'
 const Home = () => {
   const [posts,setPosts] = useState([])
+  const authStatus = useSelector((state)=>state.auth.status)
 
   useEffect(()=>{
       dbStore.getPosts().then((post)=>{
@@ -14,7 +15,7 @@ const Home = () => {
       })
   },[])
 
-  if (posts.length===0){
+  if (!authStatus){
     return(
         <div className='w-full py-8 mt-4 text-center'>
             <Container>
