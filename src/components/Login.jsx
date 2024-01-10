@@ -24,7 +24,7 @@ const Login = () => {
                 const userData = await authService.getCurrentUser()
                 console.log("Data about the user, called from appwrite: ",userData)
 
-                if (userData) dispatch(authLogin(userData))
+                if (userData) dispatch(authLogin({userData}))
                 navigate("/")   //advantage of useNavigate over Link is that user don't have to press a button or take action, you can force it
             }
 

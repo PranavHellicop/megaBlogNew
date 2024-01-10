@@ -41,11 +41,11 @@ const Header = ({userData}) => {
     <header className='py-3 shadow bg-gray-500'>
       <Container>
         <nav className='flex'>
-          <div className='mr-4 flex'>
+          <div className='mr-4 flex justify-center items-center'>
             <Link to='/'>
-              <Logo width='70px'></Logo>
+              <Logo width='80px'></Logo>
             </Link>
-            <div className='mx-5'>{authStatus && userData ? `Hi ${userData.name}`:""}</div>
+            <div className='mx-5'><em><b>{authStatus && userData ? `Hi ${userData.name}`:""}</b></em></div>
           </div>
           <ul className='flex ml-auto'>
             {navItems.map((item)=>(

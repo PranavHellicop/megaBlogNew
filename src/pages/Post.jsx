@@ -10,14 +10,20 @@ export default function Post() {
     const { slug } = useParams();
     const navigate = useNavigate();
 
+    
     const userData = useSelector((state) => state.auth.userData);
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
+    console.log("isAuthor: ",isAuthor);
+    console.log("post: ",post);
+    console.log("userData: ",userData);
+
+
 
     useEffect(() => {
         if (slug) {
             appwriteService.getPost(slug).then((post) => {
-                console.log(post)
+             
 
                 if (post) setPost(post);
                 
